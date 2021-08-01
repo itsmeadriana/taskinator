@@ -59,6 +59,15 @@ form .form-group {
   flex: 1;
 }
 
+main {
+  display: flex;
+  flex: 1;
+}
+
+main .section {
+  flex: 1;
+}
+
 footer {
   width: 100%;
   background: var(--secondary);
@@ -223,6 +232,10 @@ footer {
 
   form .form-group button {
     width: 100%;
+  }
+
+  main {
+    flex-direction: column;
   }
 
   .task-list-wrapper {
