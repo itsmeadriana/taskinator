@@ -8,6 +8,8 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 var tasksInProgressEl = document.querySelector("#tasks-in-progress");
 var tasksCompletedEl = document.querySelector("#tasks-completed");
 
+var tasks = []
+
 var taskFormHandler = function(event) {
     event.preventDefault();
 
@@ -34,7 +36,8 @@ var taskFormHandler = function(event) {
     else {
         var taskDataObject = {
             name: taskNameInput,
-            type: taskTypeInput
+            type: taskTypeInput,
+            status: "to-do"
         }
         createTaskEl(taskDataObject);
     }    
@@ -53,12 +56,18 @@ var createTaskEl = function(taskDataObject) {
 
     listItemEl.append(taskInfoEl);
 
+    taskDataObject.id = taskIdCounter;
+    tasks.push(taskDataObject);
+
     var taskActionsEl = createTaskActions(taskIdCounter);
     listItemEl.appendChild(taskActionsEl);
 
     tasksToDoEl.appendChild(listItemEl);
 
     taskIdCounter++;
+
+    console.log(taskDataObject);
+    console.log(taskDataObject.status);
 }
 
 var completeEditTask = function(taskName, taskType, taskId) {
@@ -66,6 +75,13 @@ var completeEditTask = function(taskName, taskType, taskId) {
     
     taskSelected.querySelector("h3.task-name").textContent = taskName;
     taskSelected.querySelector("span.task-type").textContent = taskType;
+
+    for (var i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === parseInt(taskId)) {
+            tasks[i].name = taskName;
+            tasks[i].type = taskType;
+        }
+    }
 
     formEl.removeAttribute("data-task-id");
     document.querySelector("#save-task").textContent = "Add Task";
@@ -130,6 +146,14 @@ var editTask = function(taskId) {
 var deleteTask = function(taskId) {
     var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
     taskSelected.remove();
+
+    var updatedTaskArray = [];
+
+    for (var i =0; i < tasks.length; i++) {
+        if (tasks[i].id !== parseInt(taskId)) {
+            updatedTaskArray.push(tasks[i]);
+        }
+    }
 }
 
 formEl.addEventListener("submit", taskFormHandler);
@@ -164,6 +188,13 @@ var taskStatusChangeHandler = function(event) {
     else if (statusValue === "completed") {
         tasksCompletedEl.appendChild(taskSelected);
     }
+
+    for (var i =0; i < tasks.length; i++) {
+        if (tasks[i].id === parseInt(taskId)) {
+            tasks[i].status = statusValue;
+        }
+    }
+    console.log(tasks);
 }
 
 pageContentEl.addEventListener("click", taskButtonHandler);
