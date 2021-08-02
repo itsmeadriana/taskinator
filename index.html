@@ -15,11 +15,26 @@
         <p>
             Click the button below to add a new task!
         </p>
-        <button class="btn" id="save-task">
-            Add Task
-        </button>
+        <form id="task-form">
+          <div class="form-group">
+              <input type="text" name="task-name" placeholder="Enter Task Here"/>
+          </div>
+          <div class="form-group">
+              <select name="task-type" class="select-dropdown">
+                <option value="" disabled selected>Pick a task type</option>
+                <option value="Personal">Personal</option>
+                <option value="School">School</option>
+                <option value="Home">Home</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <button class="btn" id="save-task">
+                Add Task
+            </button>
+          </div>
+        </form>
     </header>
-    <main>
+    <main class="page-content" id="page-content">
         <section class="task-list-wrapper">
             <h2 class="list-title">
                 Tasks To Do
@@ -28,10 +43,17 @@
                 <li class="task-item">
                     What do you need to do?
                 </li>
-                <li>
-
-                </li>
             </ul>
+        </section>
+        
+        <section class="task-list-wrapper">
+            <h2 class="list-title">Tasks In Progress</h2>
+            <ul class="task-list" id="tasks-in-progress"></ul>
+        </section>
+
+        <section class="task-list-wrapper">
+            <h2 class="list-title">Tasks Completed</h2>
+            <ul class="task-list" id="tasks-completed"></ul>
         </section>
     </main>
     
