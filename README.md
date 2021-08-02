@@ -21,7 +21,7 @@ Need to keep track of your to-do list as you get through all of your tasks? Use 
 
 ## Website Preview
 
-https://github.com/itsmeadriana/taskinator/blob/299cbaa4e2c5417b90ccd9fc4bd13ac2ee79657c/assets/video/Taskinator.mp4
+[coming soon]
 
 ## Website:
 
