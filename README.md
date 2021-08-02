@@ -34,7 +34,8 @@ https://itsmeadriana.github.io/taskinator/
 ###
 
 With contributions from the following sources:
- * The Coding Bootcamp starter files, including the HTML.index skeleton and a stylesheet.
+ * The Coding Bootcamp's included stylesheet
+ * HTML5 boilerplate
  * My very patient and encouraging tutor.
 
 ❤️  Made with love by Adriana  ❤️
